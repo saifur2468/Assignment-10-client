@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "country": "USA",
+    "popularGame": "CyberStrike",
+    "img": "https://i.postimg.cc/D0BRZnCv/dev2.jpg",
+    "users": 8250000,
+    "downloads": 9800000
+  },
+  {
+    "id": 2,
+    "name": "Aya Nakamura",
+    "country": "Japan",
+    "popularGame": "Mystic Quest",
+    "img": "https://i.postimg.cc/nVkyTGny/dev3.jpg",
+    "users": 1250000,
+    "downloads": 3500000
+  },
+  {
+    "id": 3,
+    "name": "Liam Smith",
+    "country": "UK",
+    "popularGame": "Battle Arena",
+    "img": "https://i.postimg.cc/3JxPq0Rd/dev4.jpg",
+    "users": 3250000,
+    "downloads": 500000
+  }
+  
+]
