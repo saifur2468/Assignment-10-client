@@ -1,12 +1,50 @@
-# React + Vite
+## 🎮 Gaming Rating Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description:
+A full-stack web application where users can browse games, view details, submit ratings & reviews, and filter games by ratings. Admins can manage games (create, update, delete). The project uses React (frontend) and Node.js + Express + MongoDB (backend) with authentication, notifications, and animations for a modern experience.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Game listing & search
 
-## Expanding the ESLint configuration
+Detailed game page with ratings & reviews
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User authentication (JWT)
+
+Admin panel for game management
+
+SweetAlert for confirmation dialogs
+
+React-Toastify for notifications
+
+Modern UI with Tailwind + DaisyUI
+
+Smooth animations using Framer Motion
+
+RESTful API integration
+
+## 🛠 Tech Stack
+
+Frontend:
+
+HTML, React, Tailwind CSS, DaisyUI
+
+SweetAlert, React-Toastify
+
+Framer Motion
+
+Backend:
+
+Node.js, Express
+
+MongoDB (Atlas / Local)
+
+JWT Authentication
+
+Deployment:
+
+Frontend → Vercel
+
+Backend → Render / Railway / Heroku
+
+Database → MongoDB Atlas
