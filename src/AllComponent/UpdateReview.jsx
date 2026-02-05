@@ -27,7 +27,9 @@ const UpdateReview = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/reviews/${id}`, review);
+     const { _id, ...updatedReview } = review;
+await axios.put(`http://localhost:5000/reviews/${id}`, updatedReview);
+
       Swal.fire("Success!", "Your review has been updated.", "success"); 
       navigate("/myreviews");
     } catch (err) {

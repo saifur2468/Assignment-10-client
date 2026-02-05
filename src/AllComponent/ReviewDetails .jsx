@@ -16,7 +16,7 @@ const ReviewDetails = () => {
     fetch(`http://localhost:5000/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => setReview(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err));   
   }, [id]);
 
   const handleWatchlist = async () => {

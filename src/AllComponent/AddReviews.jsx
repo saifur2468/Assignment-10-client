@@ -5,8 +5,7 @@ const AddReviews = () => {
   const handleReview = event => {
     event.preventDefault();
     const form = event.target;
-
-    const userName = form.name.value;          
+const userName = form.name.value;          
     const userEmail = form.email.value;         
     const gameTitle = form.title.value;         
     const reviewDescription = form.description.value; 

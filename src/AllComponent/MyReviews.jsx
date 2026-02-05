@@ -6,18 +6,18 @@ import MyReviewCard from "./MyReviewCard";
 const MyReviews = () => {
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
+ useEffect(() => {
+  if (user?.email) {
+    axios
+      .get(`http://localhost:5000/myreviews?email=${user.email}`) 
+      .then((res) => {
+        console.log("Server theke asha Data:", res.data);
+        setReviews(res.data);
+      })
+      .catch((err) => console.error(err));
+  }
+}, [user?.email]);
 
-  useEffect(() => {
-    if (user?.email) {
-      axios
-        .get(`http://localhost:5000/reviews?email=${user.email}`)
-        .then((res) => {
-          console.log("Server theke asha Data:", res.data); 
-          setReviews(res.data);
-        })
-        .catch((err) => console.error(err));
-    }
-  }, [user?.email]);
 
   return (
     <div>
