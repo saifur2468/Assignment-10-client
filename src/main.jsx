@@ -33,8 +33,13 @@ const router = createBrowserRouter([
         element:
           <PrivateRoute>
             element: <Reviews />
-          </PrivateRoute>,
-        loader: () => fetch('https://gaming-server-six.vercel.app/')
+           </PrivateRoute>,
+        loader: async () => {
+  const res = await fetch("https://gaming-server-six.vercel.app/reviews");
+  const data = await res.json();
+  return data; // এখানে আসলে কী return হচ্ছে সেটা important
+}
+
       },
       {
         path: "reviews/:id",
