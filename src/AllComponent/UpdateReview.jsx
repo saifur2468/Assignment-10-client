@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";  
+import Swal from "sweetalert2";
 const UpdateReview = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const UpdateReview = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/reviews/${id}`)
+      .get(`https://gaming-server-six.vercel.app/reviews/${id}`)
       .then((res) => setReview(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -27,14 +27,14 @@ const UpdateReview = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-     const { _id, ...updatedReview } = review;
-await axios.put(`http://localhost:5000/reviews/${id}`, updatedReview);
+      const { _id, ...updatedReview } = review;
+      await axios.put(`https://gaming-server-six.vercel.app/reviews/${id}`, updatedReview);
 
-      Swal.fire("Success!", "Your review has been updated.", "success"); 
+      Swal.fire("Success!", "Your review has been updated.", "success");
       navigate("/myreviews");
     } catch (err) {
       console.error(err);
-      Swal.fire("Error!", "Failed to update review.", "error"); 
+      Swal.fire("Error!", "Failed to update review.", "error");
     }
   };
 
@@ -130,7 +130,7 @@ await axios.put(`http://localhost:5000/reviews/${id}`, updatedReview);
           />
         </div>
 
-        <button 
+        <button
           type="submit"
           className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition duration-200"
         >

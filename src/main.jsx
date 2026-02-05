@@ -16,8 +16,8 @@ import Login from './AllComponent/AutSection/login';
 import SignUp from './AllComponent/AutSection/Signup';
 import ReviewDetails from "./AllComponent/ReviewDetails ";
 import "react-toastify/dist/ReactToastify.css";
-import AuthProvider from "./AllComponent/AutSection/AuthoProvider"; 
-import PrivateRoute from "./AllComponent/AutSection/PrivateRoute";   
+import AuthProvider from "./AllComponent/AutSection/AuthoProvider";
+import PrivateRoute from "./AllComponent/AutSection/PrivateRoute";
 import UpdateReview from "./AllComponent/UpdateReview";
 
 const router = createBrowserRouter([
@@ -28,61 +28,61 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HOME /> },
       { path: "home", element: <HOME /> },
-      { 
-        path: "reviews", 
+      {
+        path: "reviews",
         element:
-        <PrivateRoute>
-           element: <Reviews />
-       </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/reviews') 
+          <PrivateRoute>
+            element: <Reviews />
+          </PrivateRoute>,
+        loader: () => fetch('https://gaming-server-six.vercel.app/')
       },
       {
         path: "reviews/:id",
         element: <ReviewDetails />,
-        loader: async ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: async ({ params }) => fetch(`https://gaming-server-six.vercel.app/${params.id}`)
       },
-      { 
-        path: "addreviews", 
+      {
+        path: "addreviews",
         element: (
           <PrivateRoute>
             <AddReviews />
           </PrivateRoute>
-        ) 
+        )
       },
-      { 
-        path: "myreviews", 
+      {
+        path: "myreviews",
         element: (
           <PrivateRoute>
             <MyReviews />
           </PrivateRoute>
-        ) 
+        )
       },
-      { 
-        path: "gamewatchlist", 
+      {
+        path: "gamewatchlist",
         element: (
           <PrivateRoute>
             <GameWatchList />
           </PrivateRoute>
-        ) 
+        )
       },
       { path: "login", element: <Login /> },
       { path: "signup", element: <SignUp /> },
       {
-         path:"/updateReview/:id",
-         element:(
+        path: "/updateReview/:id",
+        element: (
           <PrivateRoute>
             <UpdateReview></UpdateReview>
-            </PrivateRoute>
-         ) 
-        },
-        {
-          path:"GameWatchList",
-          element:(
-            <PrivateRoute>
-              <GameWatchList></GameWatchList>
-            </PrivateRoute>
-          )
-        }
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "GameWatchList",
+        element: (
+          <PrivateRoute>
+            <GameWatchList></GameWatchList>
+          </PrivateRoute>
+        )
+      }
     ],
   },
 ]);

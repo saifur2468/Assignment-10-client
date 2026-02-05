@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { getAuth } from "firebase/auth";
 
+const BASE_URL = "https://gaming-server-six.vercel.app";
+
 const MyReviewCard = ({ review, onDelete }) => {
   const navigate = useNavigate();
 
@@ -25,14 +27,14 @@ const MyReviewCard = ({ review, onDelete }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myreviews/${_id}?email=${userEmail}`, {
-          method: "DELETE"
+        fetch(`${BASE_URL}/myreviews/${_id}?email=${userEmail}`, {
+          method: "DELETE",
         })
-          .then(res => res.json())
-          .then(data => {
+          .then((res) => res.json())
+          .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your review has been deleted.", "success");
               if (onDelete) onDelete(_id);
@@ -40,7 +42,7 @@ const MyReviewCard = ({ review, onDelete }) => {
               Swal.fire("Error", "Failed to delete review.", "error");
             }
           })
-          .catch(err => {
+          .catch((err) => {
             console.error(err);
             Swal.fire("Error", "Something went wrong.", "error");
           });

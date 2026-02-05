@@ -6,8 +6,10 @@ function HighestRatedGames() {
   const [games, setGames] = useState([]);
   const navigate = useNavigate();
 
+  const BASE_URL = "https://gaming-server-six.vercel.app"; // no trailing slash
+
   useEffect(() => {
-    fetch("http://localhost:5000/top-rated")
+    fetch(`${BASE_URL}/top-rated`)
       .then((res) => res.json())
       .then((data) => setGames(data))
       .catch((err) => console.error(err));
@@ -17,7 +19,6 @@ function HighestRatedGames() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      {/* Title */}
       <h2 className="text-2xl font-bold text-center mb-6">
         <Typewriter
           options={{
@@ -28,14 +29,12 @@ function HighestRatedGames() {
         />
       </h2>
 
-      {/* Grid for cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {games.map((game) => (
           <div
             key={game._id}
             className="card bg-white shadow-lg rounded-xl overflow-hidden border hover:shadow-xl transition"
           >
-            {/* Game Cover */}
             <figure>
               <img
                 src={game.gameCoverImage}
@@ -44,7 +43,6 @@ function HighestRatedGames() {
               />
             </figure>
 
-            {/* Game Info */}
             <div className="p-4 space-y-2">
               <h3 className="text-lg font-semibold">{game.gameTitle}</h3>
               <p className="text-sm text-gray-500">Genre: {game.genre}</p>
@@ -56,7 +54,6 @@ function HighestRatedGames() {
                 ⭐ {game.rating}
               </span>
 
-              {/* View Details Button */}
               <button
                 onClick={() => navigate(`/reviews/${game._id}`)}
                 className="mt-2 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"

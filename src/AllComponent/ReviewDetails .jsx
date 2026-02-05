@@ -10,13 +10,13 @@ const ReviewDetails = () => {
   const [review, setReview] = useState(null);
 
   const auth = getAuth();
-  const userEmail = auth.currentUser?.email; 
+  const userEmail = auth.currentUser?.email;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://gaming-server-six.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => setReview(data))
-      .catch((err) => console.error(err));   
+      .catch((err) => console.error(err));
   }, [id]);
 
   const handleWatchlist = async () => {
@@ -26,7 +26,7 @@ const ReviewDetails = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/watchlist", {
+      await axios.post("https://gaming-server-six.vercel.app/watchlist", {
         userEmail,
         game: {
           gameTitle: review.gameTitle,

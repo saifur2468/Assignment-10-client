@@ -5,39 +5,39 @@ const AddReviews = () => {
   const handleReview = event => {
     event.preventDefault();
     const form = event.target;
-const userName = form.name.value;          
-    const userEmail = form.email.value;         
-    const gameTitle = form.title.value;         
-    const reviewDescription = form.description.value; 
-    const rating = form.rating.value;           
-    const publishYear = form.year.value;        
-    const gameCoverImage = form.coverImage.value; 
-    const genre = form.genre.value;             
+    const userName = form.name.value;
+    const userEmail = form.email.value;
+    const gameTitle = form.title.value;
+    const reviewDescription = form.description.value;
+    const rating = form.rating.value;
+    const publishYear = form.year.value;
+    const gameCoverImage = form.coverImage.value;
+    const genre = form.genre.value;
 
     const newReview = { userName, userEmail, gameTitle, reviewDescription, rating, publishYear, gameCoverImage, genre };
     console.log(newReview);
-    fetch("http://localhost:5000/reviews", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newReview)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) { 
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Add Review successfully',
-                    icon: 'success',
-                    confirmButtonText: 'ok'
-                });
-                form.reset(); 
-            }
-        })
+    fetch("https://gaming-server-six.vercel.app/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newReview)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Add Review successfully',
+            icon: 'success',
+            confirmButtonText: 'ok'
+          });
+          form.reset();
+        }
+      })
 
-       
+
 
   };
 
@@ -89,7 +89,7 @@ const userName = form.name.value;
             <input
               type="number"
               name="rating"
-              
+
               className="w-full p-2 border rounded"
               placeholder="10"
             />
@@ -101,7 +101,7 @@ const userName = form.name.value;
             <input
               type="number"
               name="year"
-              
+
               className="w-full p-2 border rounded"
               placeholder="2024"
             />
@@ -133,8 +133,8 @@ const userName = form.name.value;
               type="email"
               name="email"
               className="w-full p-2 border rounded bg-gray-100"
-              
-               // replace with logged-in user's email
+
+            // replace with logged-in user's email
             />
           </div>
 
@@ -145,8 +145,8 @@ const userName = form.name.value;
               type="text"
               name="name"
               className="w-full p-2 border rounded bg-gray-100"
-              
-              // replace with logged-in user's name
+
+            // replace with logged-in user's name
             />
           </div>
 

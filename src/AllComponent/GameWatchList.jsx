@@ -7,13 +7,13 @@ const GameWatchList = () => {
   const [loading, setLoading] = useState(true);
 
   const auth = getAuth();
-  const userEmail = auth.currentUser?.email; 
+  const userEmail = auth.currentUser?.email;
 
   useEffect(() => {
-    if (!userEmail) return; 
+    if (!userEmail) return;
 
     axios
-      .get(`http://localhost:5000/watchlist/${userEmail}`)
+      .get(`https://gaming-server-six.vercel.app/watchlist/${userEmail}`)
       .then((res) => setWatchlist(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
