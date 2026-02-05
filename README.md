@@ -42,7 +42,7 @@ MongoDB (Atlas / Local)
 JWT Authentication
 
 Deployment:
-
+## Live Link: https://gaming-rating.web.app/
 Frontend → Vercel
 
 Backend → Render / Railway / Heroku
